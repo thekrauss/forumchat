@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="/frontEnd/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="nav-login">Login</a></li>
+                <li><a href="#" id="nav-register">Register</a></li>
+                <li><a href="#" id="nav-logout">Logout</a></li>
+                <li><a href="#" id="nav-create-posts">Create Posts</a></li>
+                <li><a href="#" id="nav-posts">Posts</a></li>
+                <li><a href="#" id="nav-private-messages">Private Messages</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Login Section -->
+        <section id="login-section" class="hidden">
+            <h2>Login</h2>
+            <div id="login-error" class="error-message hidden"></div> 
+            <form method="POST" id="login-form">
+                <input type="text" id="identifier" name="identifier" placeholder="Email or Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+            <a href="/auth/google/login-form" id="google-login">Login with Google</a>
+            <a href="/auth/github/login-form" id="github-login">Login with GitHub</a>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register-section" class="hidden">
+            <h2>Register</h2>
+            <div id="register-error" class="error-message hidden"></div>
+            <form id="register-form" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" maxlength="3" required>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option>...</option>
+                    <option>Homme</option>
+                    <option>Femme</option>
+                    <option>Autre</option>
+                </select>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <!-- Create Posts Section -->
+        <section id="create-post-section" class="hidden">
+            <h2>Create Post</h2>
+            <div id="create-post-error" class="error-message hidden"></div>
+            <form id="create-post-form" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="All">All</option>
+                    <option value="HTML/CSS">HTML/CSS</</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                    <option value="C#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="Python">Python</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Ruby">Ruby</option>
+                </select>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image">
+                <button type="submit">Create Post</button>
+            </form>
+        </section>
+
+        <!-- Posts Section -->
+        <section id="posts-section" class="hidden">
+            <form id="list-posts-form" method="POST">
+                <h2>Posts</h2>
+            </form>
+        </section>               
+
+        <!-- Private Messages Section -->
+        <section id="private-messages-section" class="hidden">
+            <h2>Private Messages</h2>
+            <div id="app">
+                <div id="user-list">
+                    <h2>Users</h2>
+                    <ul id="users"></ul>
+                </div>
+                <div id="chat-section">
+                    <div id="messages">
+                        <div id="loading-spinner" class="hidden"></div>
+                    </div>                    
+                    <div id="error-message" class="error-message hidden"></div>
+
+                    <div id="typingIndicator" class="typing-indicator"></div>
+                      
+                    <form id="message-form">
+                        <input type="text" id="message-input" placeholder="Type your message" required />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                
+            </div>
+        </section>      
+    </main>
+    
+    <script src="/frontEnd/js/app.js"></script>
+    <script src="/frontEnd/js/chat.js"></script> 
+    
+
+
+</body>
+</html>
